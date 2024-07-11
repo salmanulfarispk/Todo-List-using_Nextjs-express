@@ -13,13 +13,6 @@ module.exports={
        
        const todos= await TodoModel.find({email})
 
-       if(todos.length===0){
-         return res.status(404).json({
-            message:"No todos found for this email",
-            error: true
-         })
-       }
-
        return res.status(200).json({
         success: true,
          todos:todos
@@ -41,6 +34,7 @@ module.exports={
 
       return res.status(201).json({
         message:"creating new todo succesfull",
+        todo:saveTodo,
         success: true
       })
 
