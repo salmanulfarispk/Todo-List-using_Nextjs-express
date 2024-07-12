@@ -61,7 +61,7 @@ export default function Home() {
         <div className="flex gap-4 mt-4">
           <input type="text"  placeholder="Add ToDos.." value={input} onChange={(e)=>setInput(e.target.value)}
             className="w-full bg-transparent rounded-md border-b border-accentDark p-2
-             text-white outline-none "
+             text-white outline-none "  
           />
 
           <button className="bg-accentDark px-4 text-gray-400 hover:bg-accentLight rounded-md" onClick={addTodo}>

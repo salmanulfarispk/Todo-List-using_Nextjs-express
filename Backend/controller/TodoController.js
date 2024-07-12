@@ -51,12 +51,31 @@ module.exports={
         message:"Todo deleted succesfully",
         success: true
     })
-  }
+  },
+
+  EditTodo: async(req,res)=>{
+     const {id}=req.params;
+     const {text}=req.body;
+
+     const updateTodo= await TodoModel.findByIdAndUpdate( id,{
+      text: text},
+      { new: true } 
+    )
+    if (!updateTodo) {
+      return res.status(404).json({
+        success: false,
+        message: "Todo not found",
+      });
+    }
+
+       return res.status(200).json({
+         success: true,
+         data: updateTodo,
+         message:"todo updated succesfully"
+       })
 
 
-
-
-
+  },
 
 
 }
